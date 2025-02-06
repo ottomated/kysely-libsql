@@ -1,5 +1,5 @@
 {
-  "name": "@libsql/kysely-libsql",
+  "name": "kysely-libsql",
   "version": "0.5.0",
   "keywords": [
     "hrana",
@@ -11,11 +11,12 @@
   "description": "Kysely dialect for libSQL",
   "repository": {
     "type": "git",
-    "url": "github:libsql/kysely-libsql"
+    "url": "github:ottomated/kysely-libsql"
   },
-  "homepage": "https://github.com/libsql/kysely-libsql",
+  "homepage": "https://github.com/ottomated/kysely-libsql",
   "authors": [
-    "Jan Špaček <honza@chiselstrike.com>"
+    "Jan Špaček <honza@chiselstrike.com>",
+    "Ottomated <otto@ottomated.net>"
   ],
   "license": "MIT",
   "type": "module",
