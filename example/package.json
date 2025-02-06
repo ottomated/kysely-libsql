@@ -3,10 +3,10 @@
   "dependencies": {
     "kysely-libsql": "link:.."
   },
-  "devDependencies": {
-    "ts-node": "^10.9.1"
-  },
   "scripts": {
-    "example": "ts-node index.ts"
+    "example": "rm test.db && tsx index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
   }
 }
