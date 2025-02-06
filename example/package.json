@@ -4,7 +4,7 @@
     "kysely-libsql": "link:.."
   },
   "scripts": {
-    "example": "rm test.db && tsx index.ts"
+    "example": "rm -f test.db && tsx index.ts"
   },
   "devDependencies": {
     "tsx": "^4.19.2"
