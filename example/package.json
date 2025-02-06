@@ -1,14 +1,12 @@
 {
-    "type": "commonjs",
-
-    "dependencies": {
-        "@libsql/kysely-libsql": ".."
-    },
-    "devDependencies": {
-        "ts-node": "^10.9.1"
-    },
-
-    "scripts": {
-        "example": "ts-node index.ts"
-    }
+  "type": "commonjs",
+  "dependencies": {
+    "kysely-libsql": "link:.."
+  },
+  "scripts": {
+    "example": "rm -f test.db && tsx index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
 }
