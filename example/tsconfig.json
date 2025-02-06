@@ -1,9 +1,19 @@
 {
-    "compilerOptions": {
-        "lib": ["esnext"],
-        "target": "esnext",
-        "esModuleInterop": true,
-        "isolatedModules": true,
-        "strict": true
-    }
+	"compilerOptions": {
+		"moduleResolution": "bundler",
+		"lib": ["esnext"],
+		"target": "esnext",
+
+		"esModuleInterop": true,
+		"isolatedModules": true,
+
+		"rootDir": "src/",
+
+		"strict": true,
+		"allowSyntheticDefaultImports": true,
+		"noUncheckedIndexedAccess": true,
+		"noEmit": true,
+		"forceConsistentCasingInFileNames": true,
+		"verbatimModuleSyntax": true
+	}
 }

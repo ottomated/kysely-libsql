@@ -1,16 +1,19 @@
 {
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "lib": ["esnext"],
-        "target": "esnext",
+	"compilerOptions": {
+		"moduleResolution": "bundler",
+		"lib": ["esnext"],
+		"target": "esnext",
 
-        "esModuleInterop": true,
-        "isolatedModules": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
 
-        "rootDir": "src/",
+		"rootDir": "src/",
 
-        "strict": true
-    },
-    "include": ["src/"],
-    "exclude": ["**/__tests__"]
+		"strict": true,
+		"allowSyntheticDefaultImports": true,
+		"noUncheckedIndexedAccess": true,
+		"noEmit": true,
+		"forceConsistentCasingInFileNames": true,
+		"verbatimModuleSyntax": true
+	}
 }
