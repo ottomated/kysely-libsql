@@ -1,10 +1,11 @@
-name: 'Test'
+name: Publish to NPM
 on:
-  pull_request:
+  release:
+    types: [published]
 
 jobs:
-  node-test:
-    name: Build and Test
+  build-and-publish:
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,3 +33,7 @@ jobs:
           cd example
           pnpm i
           pnpm example
+
+      - run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

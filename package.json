@@ -36,7 +36,8 @@
 	"scripts": {
 		"prepublishOnly": "pnpm build",
 		"test": "vitest run",
-		"lint": "eslint"
+		"lint": "eslint",
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@libsql/client": "^0.14.0"
