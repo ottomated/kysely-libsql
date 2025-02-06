@@ -1,7 +1,5 @@
 node_modules
-/lib-esm
-/lib-cjs
-/example/package-lock.json
 *.tsbuildinfo
 Session.vim
 test.db
+/dist

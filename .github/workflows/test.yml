@@ -1,12 +1,10 @@
-name: "CI"
+name: 'Test'
 on:
-  push:
-    branches: ["main"]
   pull_request:
 
 jobs:
   node-test:
-    name: Build and test
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,8 +19,14 @@ jobs:
       - name: Install npm dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint
+        run: pnpm eslint --max-warnings 0
+      - name: Format
+        run: pnpm prettier --check .
       - name: Build
         run: pnpm build
+      - name: Publint
+        run: pnpm publint
       - name: Run Tests
         run: pnpm test
       - name: Test Example

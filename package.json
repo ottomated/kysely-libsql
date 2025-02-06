@@ -1,58 +1,65 @@
 {
-  "name": "kysely-libsql",
-  "version": "0.5.0",
-  "keywords": [
-    "hrana",
-    "libsql",
-    "sqld",
-    "database",
-    "kysely"
-  ],
-  "description": "Kysely dialect for libSQL",
-  "repository": {
-    "type": "git",
-    "url": "github:ottomated/kysely-libsql"
-  },
-  "homepage": "https://github.com/ottomated/kysely-libsql",
-  "authors": [
-    "Jan Špaček <honza@chiselstrike.com>",
-    "Ottomated <otto@ottomated.net>"
-  ],
-  "license": "MIT",
-  "type": "module",
-  "main": "lib-cjs/index.js",
-  "types": "lib-esm/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./lib-esm/index.d.ts",
-      "import": "./lib-esm/index.js",
-      "require": "./lib-cjs/index.js"
-    }
-  },
-  "files": [
-    "lib-cjs/**",
-    "lib-esm/**"
-  ],
-  "scripts": {
-    "prepublishOnly": "npm run build",
-    "prebuild": "rm -rf ./lib-cjs ./lib-esm",
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc -p tsconfig.build-cjs.json",
-    "build:esm": "tsc -p tsconfig.build-esm.json",
-    "postbuild": "cp package-cjs.json ./lib-cjs/package.json",
-    "test": "jest --runInBand"
-  },
-  "dependencies": {
-    "@libsql/client": "^0.9.0"
-  },
-  "peerDependencies": {
-    "kysely": "*"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.4.0",
-    "jest": "^29.4.0",
-    "ts-jest": "^29.0.5",
-    "typescript": "^5.5.4"
-  },
-  "packageManager": "pnpm@10.2.1"
+	"name": "kysely-libsql",
+	"version": "0.6.0",
+	"keywords": [
+		"hrana",
+		"libsql",
+		"sqld",
+		"database",
+		"kysely"
+	],
+	"description": "Kysely dialect for libSQL",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ottomated/kysely-libsql.git"
+	},
+	"homepage": "https://github.com/ottomated/kysely-libsql",
+	"authors": [
+		"Ottomated <otto@ottomated.net>",
+		"Jan Špaček <honza@chiselstrike.com>"
+	],
+	"license": "MIT",
+	"type": "module",
+	"module": "dist/index.js",
+	"main": "dist/index.cjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": {
+				"import": "./dist/index.d.ts",
+				"require": "./dist/index.d.cts"
+			},
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"scripts": {
+		"prepublishOnly": "pnpm build",
+		"build": "rm -rf dist && tsup src/index.ts --dts --format esm,cjs",
+		"test": "vitest run",
+		"lint": "eslint",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@libsql/client": "^0.14.0"
+	},
+	"peerDependencies": {
+		"kysely": "*"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.19.0",
+		"eslint": "^9.19.0",
+		"globals": "^15.14.0",
+		"prettier": "^3.4.2",
+		"publint": "^0.3.3",
+		"tsup": "^8.3.6",
+		"typescript": "^5.7.3",
+		"typescript-eslint": "^8.23.0",
+		"vitest": "^3.0.5"
+	},
+	"packageManager": "pnpm@10.2.1"
 }
