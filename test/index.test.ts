@@ -11,7 +11,8 @@ interface Database {
 }
 
 const testDb = test.extend<{ db: Kysely<Database> }>({
-	db: async (_, use) => {
+	// eslint-disable-next-line no-empty-pattern
+	db: async ({}, use) => {
 		await unlink('test.db').catch(() => {});
 
 		const db = new Kysely<Database>({
