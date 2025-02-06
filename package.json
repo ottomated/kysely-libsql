@@ -11,7 +11,7 @@
 	"description": "Kysely dialect for libSQL",
 	"repository": {
 		"type": "git",
-		"url": "github:ottomated/kysely-libsql"
+		"url": "git+https://github.com/ottomated/kysely-libsql.git"
 	},
 	"homepage": "https://github.com/ottomated/kysely-libsql",
 	"authors": [
@@ -20,21 +20,26 @@
 	],
 	"license": "MIT",
 	"type": "module",
-	"main": "lib-cjs/index.js",
-	"types": "lib-esm/index.d.ts",
+	"module": "dist/index.js",
+	"main": "dist/index.cjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./lib-esm/index.d.ts",
-			"import": "./lib-esm/index.js",
-			"require": "./lib-cjs/index.js"
+			"types": {
+				"import": "./dist/index.d.ts",
+				"require": "./dist/index.d.cts"
+			},
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
 		}
 	},
 	"files": [
-		"lib-cjs/**",
-		"lib-esm/**"
+		"dist",
+		"src"
 	],
 	"scripts": {
 		"prepublishOnly": "pnpm build",
+		"build": "rm -rf dist && tsup src/index.ts --dts --format esm,cjs",
 		"test": "vitest run",
 		"lint": "eslint",
 		"format": "prettier --write ."
@@ -50,6 +55,8 @@
 		"eslint": "^9.19.0",
 		"globals": "^15.14.0",
 		"prettier": "^3.4.2",
+		"publint": "^0.3.3",
+		"tsup": "^8.3.6",
 		"typescript": "^5.7.3",
 		"typescript-eslint": "^8.23.0",
 		"vitest": "^3.0.5"

@@ -26,6 +26,8 @@ jobs:
         run: pnpm prettier --check .
       - name: Build
         run: pnpm build
+      - name: Publint
+        run: pnpm publint
       - name: Run Tests
         run: pnpm test
       - name: Test Example

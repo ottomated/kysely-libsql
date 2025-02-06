@@ -2,3 +2,4 @@ node_modules
 *.tsbuildinfo
 Session.vim
 test.db
+/dist
