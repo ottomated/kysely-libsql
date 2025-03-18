@@ -45,7 +45,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@libsql/client": "^0.14.0"
+		"@libsql/client": "^0.15.0"
 	},
 	"peerDependencies": {
 		"kysely": "*"
