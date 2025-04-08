@@ -100,10 +100,18 @@ export class LibsqlConnection implements kysely.DatabaseConnection {
 			sql: compiledQuery.sql,
 			args: compiledQuery.parameters as Array<libsql.InValue>,
 		});
+		// Strip hidden properties from each row
+		const rows = result.rows.map((row) => {
+			const stripped: Record<string, unknown> = {};
+			for (const key in row) {
+				stripped[key] = row[key];
+			}
+			return stripped as R;
+		});
 		return {
 			insertId: result.lastInsertRowid,
 			numAffectedRows: BigInt(result.rowsAffected),
-			rows: result.rows as Array<R>,
+			rows,
 		};
 	}
 
@@ -135,6 +143,6 @@ export class LibsqlConnection implements kysely.DatabaseConnection {
 		_compiledQuery: kysely.CompiledQuery,
 		_chunkSize: number,
 	): AsyncIterableIterator<kysely.QueryResult<R>> {
-		throw new Error('Libsql Driver does not support streaming yet');
+		throw new Error('kysely-libsql does not support streaming yet');
 	}
 }
