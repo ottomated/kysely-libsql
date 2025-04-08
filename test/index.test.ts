@@ -29,7 +29,6 @@ const testDb = test.extend<{ db: Kysely<Database> }>({
 		}
 	},
 });
-
 testDb('basic operations', async ({ db }) => {
 	const { id } = await db
 		.insertInto('book')
@@ -42,6 +41,8 @@ testDb('basic operations', async ({ db }) => {
 		.select(['id', 'title'])
 		.where('book.id', '=', id)
 		.executeTakeFirst();
+
+	expect('length' in book!).toBeFalsy();
 
 	expect(book!.id).toStrictEqual(id);
 	expect(book!.title).toStrictEqual('Pride and Prejudice');
